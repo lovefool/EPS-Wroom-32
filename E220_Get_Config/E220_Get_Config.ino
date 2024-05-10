@@ -40,7 +40,7 @@
 // -------------------------------------------------
  
 // ---------- esp32 pins --------------
-LoRa_E220 e220ttl(&Serial2, E220_M0, E220_M1, E220_AUX); //  RX AUX M0 M1
+LoRa_E220 e220ttl(&Serial2, E220_AUX, E220_M0, E220_M1); //  RX AUX M0 M1
  
 //LoRa_E220 e220ttl(&Serial2, 22, 4, 18, 21, 19, UART_BPS_RATE_9600); //  esp32 RX <-- e220 TX, esp32 TX --> e220 RX AUX M0 M1
 // -------------------------------------
