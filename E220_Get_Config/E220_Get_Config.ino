@@ -9,7 +9,7 @@
  *
  * E220       ----- ESP-WROOM-32D
  * M0         ----- GPIO27 (16)
- * M1         ----- GPIO16 (17)
+ * M1         ----- GPIO14 (17)
  * RX         ----- GPIO17 (27) U2TXD
  * TX         ----- GPIO16 (25) U2RXD
  * AUX        ----- GPIO12 (18)
