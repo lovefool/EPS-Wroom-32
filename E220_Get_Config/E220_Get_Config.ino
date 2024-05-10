@@ -3,27 +3,35 @@
  * Get configuration.
  * https://mischianti.org
  *
- * E220       ----- Wemos D1 mini
- * M0         -----  (3.3v)
- * M1         -----  (3.3v)
- * RX         ----- D8 (PullUP)
- * TX         ----- D7 (PullUP)
- * AUX        -----    (PullUP)
+ * 2024/5/10
+ * 
+ * update for ESP-WROOM-32D Hardware serial2
+ *
+ * E220       ----- ESP-WROOM-32D
+ * M0         ----- GPIO27 (16)
+ * M1         ----- GPIO16 (17)
+ * RX         ----- GPIO17 (27) U2TXD
+ * TX         ----- GPIO16 (25) U2RXD
+ * AUX        ----- GPIO12 (18)
  * VCC        ----- 3.3v
  * GND        ----- GND
  *
  */
 
 #include "EByte_LoRa_E220_library.h"
- 
+
+#define E220_M0     16
+#define E220_M1     17
+#define E220_AUX    18
+
 // ---------- esp8266 pins --------------
 //LoRa_E220 e220ttl(RX, TX, AUX, M0, M1);  // Arduino RX <-- e220 TX, Arduino TX --> e220 RX
 //LoRa_E220 e220ttl(D3, D4, D5, D7, D6); // Arduino RX <-- e220 TX, Arduino TX --> e220 RX AUX M0 M1
 // LoRa_E220 e220ttl(D7, D8); // Config without connect AUX and M0 M1
  
-#include <SoftwareSerial.h>
-SoftwareSerial mySerial(D7, D8); // Arduino RX <-- e220 TX, Arduino TX --> e220 RX
-LoRa_E220 e220ttl(&mySerial); // no AUX M0 M1
+// #include <SoftwareSerial.h>
+// SoftwareSerial mySerial(D7, D8); // Arduino RX <-- e220 TX, Arduino TX --> e220 RX
+// LoRa_E220 e220ttl(&mySerial); // no AUX M0 M1
 //LoRa_E220 e220ttl(&mySerial, D5, D7, D6); // AUX M0 M1
 // -------------------------------------
  
@@ -32,7 +40,7 @@ LoRa_E220 e220ttl(&mySerial); // no AUX M0 M1
 // -------------------------------------------------
  
 // ---------- esp32 pins --------------
-// LoRa_E220 e220ttl(&Serial2, 15, 21, 19); //  RX AUX M0 M1
+LoRa_E220 e220ttl(&Serial2, E220_M0, E220_M1, E220_AUX); //  RX AUX M0 M1
  
 //LoRa_E220 e220ttl(&Serial2, 22, 4, 18, 21, 19, UART_BPS_RATE_9600); //  esp32 RX <-- e220 TX, esp32 TX --> e220 RX AUX M0 M1
 // -------------------------------------
