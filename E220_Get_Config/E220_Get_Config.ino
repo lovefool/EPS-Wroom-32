@@ -8,11 +8,11 @@
  * update for ESP-WROOM-32D Hardware serial2
  *
  * E220       ----- ESP-WROOM-32D
- * M0         ----- GPIO27 (16)
- * M1         ----- GPIO14 (17)
+ * M0         ----- GPIO25 (14)
+ * M1         ----- GPIO26 (15)
  * RX         ----- GPIO17 (27) U2TXD
  * TX         ----- GPIO16 (25) U2RXD
- * AUX        ----- GPIO12 (18)
+ * AUX        ----- GPIO27 (16)
  * VCC        ----- 3.3v
  * GND        ----- GND
  *
@@ -20,9 +20,9 @@
 
 #include "EByte_LoRa_E220_library.h"
 
-#define E220_M0     16
-#define E220_M1     17
-#define E220_AUX    18
+#define E220_M0     14
+#define E220_M1     15
+#define E220_AUX    16
 
 // ---------- esp8266 pins --------------
 //LoRa_E220 e220ttl(RX, TX, AUX, M0, M1);  // Arduino RX <-- e220 TX, Arduino TX --> e220 RX
